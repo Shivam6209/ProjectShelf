@@ -132,4 +132,26 @@ export const profileAPI = {
   },
 };
 
-export default api; 
+export default api;
+
+export async function pingBackend() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  if (!apiUrl) {
+    console.error("NEXT_PUBLIC_API_URL is not defined");
+    return;
+  }
+
+  try {
+    // Making a simple GET request to the base API URL or a specific endpoint like /api
+    const response = await fetch(`${apiUrl}/api`);
+
+    if (response.ok) {
+      console.log("Backend ping successful:", response.status);
+    } else {
+      console.error("Backend ping failed:", response.status);
+    }
+  } catch (error) {
+    console.error("Error during backend ping:", error);
+  }
+}
