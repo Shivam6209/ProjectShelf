@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -9,18 +9,20 @@ import { ClientErrorBoundary } from "@/components/ClientErrorBoundary";
 import { Toaster } from "@/components/ui/toast";
 
 const inter = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
 });
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata: Metadata = {
-  title: "ProjectShelf - Portfolio Platform for Creators",
-  description: "Create dynamic portfolios with modular case studies for designers, developers, and writers.",
+  title: "Project Shelf",
+  description: "Your personal project management tool",
 };
 
 export default function RootLayout({
@@ -29,10 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-gray-50 font-sans antialiased`}>
+      <body>
         <AuthProvider>
           <ThemeProvider>
             <ClientErrorBoundary>

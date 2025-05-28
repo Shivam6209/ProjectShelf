@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { Check, Palette, Eye, Calendar, Image, ExternalLink, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 interface PreviewProject {
   title: string;
@@ -388,16 +389,18 @@ export default function PortfolioThemeSelector() {
                   
                   {/* Action Button */}
                   <div className="text-center">
-                    <Button
-                      className="px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                      style={{ 
-                        background: themes[currentTheme].primary,
-                        color: showDarkPreview ? '#ffffff' : '#ffffff',
-                      }}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      View Full Project
-                    </Button>
+                    <Link href="/dashboard/projects">
+                      <Button
+                        className="px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                        style={{
+                          background: themes[currentTheme].primary,
+                          color: showDarkPreview ? '#ffffff' : '#ffffff',
+                        }}
+                      >
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        View Full Project
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
