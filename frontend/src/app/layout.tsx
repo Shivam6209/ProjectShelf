@@ -24,11 +24,6 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 });
 
-export const metadata: Metadata = {
-  title: "Project Shelf",
-  description: "Your personal project management tool",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
